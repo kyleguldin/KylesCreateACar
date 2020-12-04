@@ -23,9 +23,9 @@ import java.util.Scanner;
 **/
 
 public class CarImage extends JPanel {
-    ImageIcon sedanImage = new ImageIcon(getClass().getResource("Images/IST261SedanOutline.PNG"));
+    ImageIcon sedanImage = new ImageIcon(getClass().getResource("images/IST261SedanOutline.PNG"));
     JLabel SedanLabel = new JLabel(sedanImage);
-    ImageIcon truckImage = new ImageIcon(getClass().getResource("Images/IST261TruckOutline.PNG"));
+    ImageIcon truckImage = new ImageIcon(getClass().getResource("images/IST261TruckOutline.PNG"));
     JLabel truckLabel = new JLabel(truckImage);
     boolean carImage = true;
     
