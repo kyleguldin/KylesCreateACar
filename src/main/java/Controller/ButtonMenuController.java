@@ -13,36 +13,49 @@ package Controller;
  * @author Kyle Guldin import java.util.Scanner;
 *
  */
+import Model.Car;
 import View.ButtonMenu;
+import View.CarImage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonMenuController implements ActionListener {
 
-    ButtonMenu view;
+//    ButtonMenu buttonView;
+    CarImage carView;
+    Car currentCar;
 
-    public ButtonMenuController(ButtonMenu view) {
-        this.view = view;
+    public ButtonMenuController(CarImage carView) {
+        this.carView = carView;
+        this.currentCar = new Car();
+        this.currentCar.setType("sedan");
+        this.currentCar.setColor("red");
+        this.currentCar.setHighTint(false);
+        this.carView.setCarImage( this.currentCar.getType(),
+                this.currentCar.getColor(),
+                this.currentCar.getHighTint() );
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Switch Car")) {
-            System.out.println("Switch");
-            this.view.swtichCarImage();
+            if ( this.currentCar.getType() == "truck" ) {
+                this.currentCar.setType("sedan");
+            } else {
+                this.currentCar.setType("truck");
+            }
         } else if (e.getActionCommand().equals("Blue")) {
-            System.out.println("Blue");
-            this.view.blueCarImage();
+            this.currentCar.setColor("blue");
         } else if (e.getActionCommand().equals("Grey")) {
-            System.out.println("Grey");
-            this.view.greyCarImage();
+            this.currentCar.setColor("grey");
         } else if (e.getActionCommand().equals("Red")) {
-            System.out.println("Red");
-            this.view.redCarImage();
+            this.currentCar.setColor("red");
         } else if (e.getActionCommand().equals("High Tint")) {
-            System.out.println("Tint");
-            this.view.redCarImage();
+            this.currentCar.setHighTint(true);
         }
-
+        
+        this.carView.setCarImage( this.currentCar.getType(),
+                this.currentCar.getColor(),
+                this.currentCar.getHighTint() );
     }
 }

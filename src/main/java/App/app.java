@@ -25,8 +25,8 @@ public class app {
     public static void main(String[] args) {
         System.out.println("Kyle's Car Customs");
         OpeningWindow mainWindow = new OpeningWindow();
-        Car vehicle = new Car();
-        vehicle.addObserver(mainWindow);
+//        Car vehicle = new Car();
+//        vehicle.addObserver(mainWindow);
     }
 }
 

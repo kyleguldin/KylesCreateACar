@@ -13,6 +13,7 @@ package View;
  * @author Kyle Guldin import java.util.Scanner;
 *
  */
+import Controller.ButtonMenuController;
 import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
@@ -23,12 +24,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class OpeningWindow extends JFrame implements Observer {
 
     ButtonMenu buttonMenu;
-    CarImage carImage = new CarImage();
+    CarImage carImage;
+    ButtonMenuController controller;
     FeatureOptions detailOptions = new FeatureOptions();
 
     public OpeningWindow() {
+        
+        this.carImage = new CarImage();
 
-        this.buttonMenu = new ButtonMenu(this);
+        this.controller = new ButtonMenuController( carImage );
+
+        this.buttonMenu = new ButtonMenu( this.controller );
 
         this.setLayout(new BorderLayout());
         this.add(this.buttonMenu, BorderLayout.EAST);
@@ -41,35 +47,35 @@ public class OpeningWindow extends JFrame implements Observer {
         this.setVisible(true);
     }
 
-    public void switchCarImage() {
-        this.carImage.switchCarImage();
-        this.carImage.revalidate();
-    }
-
-    public void blueCars() {
-        this.carImage.blueCarImage();
-        this.carImage.revalidate();
-    }
-
-    public void greyCars() {
-        this.carImage.greyCarImage();
-        this.carImage.revalidate();
-    }
-
-    public void redCars() {
-        this.carImage.redCarImage();
-        this.carImage.revalidate();
-    }
-    public void tintRedCar(){
-        this.carImage.redTintCarImage();
-    }
-                
-     public void tintBlueCars(){
-        this.carImage.blueTintCarImage();
-    }
-      public void tintGreyCars(){
-        this.carImage.greyTintCarImage();
-    }
+//    public void switchCarImage() {
+//        this.carImage.switchCarImage();
+//        this.carImage.revalidate();
+//    }
+//
+//    public void blueCars() {
+//        this.carImage.blueCarImage();
+//        this.carImage.revalidate();
+//    }
+//
+//    public void greyCars() {
+//        this.carImage.greyCarImage();
+//        this.carImage.revalidate();
+//    }
+//
+//    public void redCars() {
+//        this.carImage.redCarImage();
+//        this.carImage.revalidate();
+//    }
+//    public void tintRedCar(){
+//        this.carImage.redTintCarImage();
+//    }
+//                
+//     public void tintBlueCars(){
+//        this.carImage.blueTintCarImage();
+//    }
+//      public void tintGreyCars(){
+//        this.carImage.greyTintCarImage();
+//    }
 
     @Override
     public void update(Observable o, Object arg) {

@@ -10,7 +10,7 @@ public class Car extends Observable{
     private final Map<String, Double> colorCost;
     private final Map<String, Double> windowTintCost;
     String color;  // red, blue, gray
-    String windowTint;  // high or low
+    boolean highTint;
     String type;    // car or truck
 
     public Car() {
@@ -26,12 +26,31 @@ public class Car extends Observable{
     
     public Double totalCost() {
         Double body = this.colorCost.get( this.color );
-        Double window = this.windowTintCost.get( this.windowTint);
+        Double window = this.windowTintCost.get( this.highTint);
         return body + window;
     }
     
     public void setColor(String c) {
         this.color = c;
-        this.notifyAll();
+    }
+    
+    public String getColor() {
+        return this.color;
+    }
+    
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public void setHighTint(boolean b) {
+        this.highTint = b;
+    }
+    
+    public boolean getHighTint() {
+        return this.highTint;
     }
 }

@@ -25,12 +25,12 @@ public class ButtonMenu extends JPanel {
 
     JButton lookup, submit, clear, truck, sedan, blue, red, grey, highTint, lowTint, exit;
     ButtonMenuController controller;
-    OpeningWindow mainWindow;
-    CarImage blueCars;
+//    OpeningWindow mainWindow;
+//    CarImage blueCars;
 
-    public ButtonMenu(OpeningWindow wnd) {
+    public ButtonMenu( ButtonMenuController controller ) {
         this.setSize(500, 500);
-        this.mainWindow = wnd;
+//        this.mainWindow = wnd;
         this.lookup = new JButton("Switch Car");
         this.submit = new JButton("Submit");
         this.clear = new JButton("clear");
@@ -53,7 +53,7 @@ public class ButtonMenu extends JPanel {
         this.add(this.exit);
 
         // instantiate the controller
-        this.controller = new ButtonMenuController(this);
+        this.controller = controller;
         this.lookup.addActionListener(this.controller);
         this.submit.addActionListener(this.controller);
         this.clear.addActionListener(this.controller);
@@ -67,22 +67,22 @@ public class ButtonMenu extends JPanel {
         this.exit.addActionListener(this.controller);
         this.setBackground(Color.CYAN);
     }
-
-    public void swtichCarImage() {
-        this.mainWindow.switchCarImage();
-    }
-
-    public void blueCarImage() {
-        this.mainWindow.blueCars();
-    }
-
-    public void greyCarImage() {
-        this.mainWindow.greyCars();
-    }
-
-    public void redCarImage() {
-        this.mainWindow.redCars();
-    }
+//
+//    public void swtichCarImage() {
+//        this.mainWindow.switchCarImage();
+//    }
+//
+//    public void blueCarImage() {
+//        this.mainWindow.blueCars();
+//    }
+//
+//    public void greyCarImage() {
+//        this.mainWindow.greyCars();
+//    }
+//
+//    public void redCarImage() {
+//        this.mainWindow.redCars();
+//    }
 //    public void redTintImage(){
 //        this.mainWindow.r
 //    }
