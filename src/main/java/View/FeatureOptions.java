@@ -25,6 +25,7 @@ public class FeatureOptions extends JPanel {
     public FeatureOptions() {
         this.setBackground(Color.blue);
         this.setSize(250, 250);
+        
     }
 }
 

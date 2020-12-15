@@ -19,10 +19,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-/**
- *
- * @author kqy1
- */
+
 public class OpeningWindow extends JFrame implements Observer {
 
     ButtonMenu buttonMenu;
@@ -62,6 +59,16 @@ public class OpeningWindow extends JFrame implements Observer {
     public void redCars() {
         this.carImage.redCarImage();
         this.carImage.revalidate();
+    }
+    public void tintRedCar(){
+        this.carImage.redTintCarImage();
+    }
+                
+     public void tintBlueCars(){
+        this.carImage.blueTintCarImage();
+    }
+      public void tintGreyCars(){
+        this.carImage.greyTintCarImage();
     }
 
     @Override

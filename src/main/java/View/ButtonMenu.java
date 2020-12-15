@@ -40,7 +40,6 @@ public class ButtonMenu extends JPanel {
         this.red = new JButton("Red");
         this.grey = new JButton("Grey");
         this.highTint = new JButton("High Tint");
-        this.lowTint = new JButton("Low Tint");
         this.exit = new JButton("Exit");
         this.setLayout(new BoxLayout(this, Y_AXIS));
         this.add(this.lookup);
@@ -48,7 +47,7 @@ public class ButtonMenu extends JPanel {
         this.add(this.red);
         this.add(this.grey);
         this.add(this.highTint);
-        this.add(this.lowTint);
+        
         this.add(this.clear);
         this.add(this.submit);
         this.add(this.exit);
@@ -64,7 +63,7 @@ public class ButtonMenu extends JPanel {
         this.red.addActionListener(this.controller);
         this.grey.addActionListener(this.controller);
         this.highTint.addActionListener(this.controller);
-        this.lowTint.addActionListener(this.controller);
+        
         this.exit.addActionListener(this.controller);
         this.setBackground(Color.CYAN);
     }
@@ -84,4 +83,13 @@ public class ButtonMenu extends JPanel {
     public void redCarImage() {
         this.mainWindow.redCars();
     }
+//    public void redTintImage(){
+//        this.mainWindow.r
+//    }
+//    public void blueTintImage(){
+//        this.mainWindow.
+//    }
+//    public void greyTintImage(){
+//        this.mainWindow.tintRedCars();
+//    }
 }

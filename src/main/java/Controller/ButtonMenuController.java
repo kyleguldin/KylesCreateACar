@@ -39,6 +39,9 @@ public class ButtonMenuController implements ActionListener {
         } else if (e.getActionCommand().equals("Red")) {
             System.out.println("Red");
             this.view.redCarImage();
+        } else if (e.getActionCommand().equals("High Tint")) {
+            System.out.println("Tint");
+            this.view.redCarImage();
         }
 
     }
