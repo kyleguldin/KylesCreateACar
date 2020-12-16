@@ -22,7 +22,7 @@ public class Car extends Observable {//Sadly the only thing
 
         this.windowTintCost = new HashMap<>();
         this.windowTintCost.put("high", 1100.0);
-        this.windowTintCost.put("low", 00.0);//prices to corresponding tints
+        this.windowTintCost.put("low", 900.0);//prices to corresponding tints
     }
 
     public Double totalCost() {

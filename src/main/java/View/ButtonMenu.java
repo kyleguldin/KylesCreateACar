@@ -31,7 +31,7 @@ public class ButtonMenu extends JPanel {
         this.setSize(500, 500);
 //        this.mainWindow = wnd;
         this.lookup = new JButton("Switch Car");//this creates new buttons
-        // this.submit = new JButton("Submit");
+        this.submit = new JButton("Submit");
         this.clear = new JButton("clear");
         this.truck = new JButton("Truck");
         this.sedan = new JButton("Sedan");
@@ -40,8 +40,8 @@ public class ButtonMenu extends JPanel {
         this.grey = new JButton("Grey");
         this.highTint = new JButton("High Tint");
         this.exit = new JButton("Exit");
-        this.setLayout(new BoxLayout(this, Y_AXIS));//sets layout
-        this.add(this.lookup);//adds buttons
+        this.setLayout(new BoxLayout(this, Y_AXIS));
+        this.add(this.lookup);
         this.add(this.blue);
         this.add(this.red);
         this.add(this.grey);
@@ -53,7 +53,7 @@ public class ButtonMenu extends JPanel {
 
         // instantiate the controller
         this.controller = controller;
-        this.lookup.addActionListener(this.controller);//adds action listeners to buttons
+        this.lookup.addActionListener(this.controller);//adds action listener
         this.repaint();
         this.submit.addActionListener(this.controller);
         this.repaint();
@@ -86,7 +86,7 @@ public class ButtonMenu extends JPanel {
         this.repaint();
 
     }
-// old code
+//
 //    public void swtichCarImage() {
 //        this.mainWindow.switchCarImage();
 //    }
