@@ -18,9 +18,8 @@ import javax.swing.JPanel;
 /**
  *
  * @author Kyle Guldin import java.util.Scanner;
-*
+ *
  */
-
 public class ButtonMenu extends JPanel {
 
     JButton lookup, submit, clear, truck, sedan, blue, red, grey, highTint, lowTint, exit;
@@ -28,11 +27,11 @@ public class ButtonMenu extends JPanel {
 //    OpeningWindow mainWindow;
 //    CarImage blueCars;
 
-    public ButtonMenu( ButtonMenuController controller ) {
+    public ButtonMenu(ButtonMenuController controller) {
         this.setSize(500, 500);
 //        this.mainWindow = wnd;
-        this.lookup = new JButton("Switch Car");
-        this.submit = new JButton("Submit");
+        this.lookup = new JButton("Switch Car");//this creates new buttons
+        // this.submit = new JButton("Submit");
         this.clear = new JButton("clear");
         this.truck = new JButton("Truck");
         this.sedan = new JButton("Sedan");
@@ -41,33 +40,53 @@ public class ButtonMenu extends JPanel {
         this.grey = new JButton("Grey");
         this.highTint = new JButton("High Tint");
         this.exit = new JButton("Exit");
-        this.setLayout(new BoxLayout(this, Y_AXIS));
-        this.add(this.lookup);
+        this.setLayout(new BoxLayout(this, Y_AXIS));//sets layout
+        this.add(this.lookup);//adds buttons
         this.add(this.blue);
         this.add(this.red);
         this.add(this.grey);
         this.add(this.highTint);
-        
+
         this.add(this.clear);
-        this.add(this.submit);
+//        this.add(this.submit);
         this.add(this.exit);
 
         // instantiate the controller
         this.controller = controller;
-        this.lookup.addActionListener(this.controller);
+        this.lookup.addActionListener(this.controller);//adds action listeners to buttons
+        this.repaint();
         this.submit.addActionListener(this.controller);
+        this.repaint();
+
         this.clear.addActionListener(this.controller);
+        this.repaint();
+
         this.truck.addActionListener(this.controller);
+        this.repaint();
+
         this.sedan.addActionListener(this.controller);
+        this.repaint();
+
         this.blue.addActionListener(this.controller);
+        this.repaint();
+
         this.red.addActionListener(this.controller);
+        this.repaint();
+
         this.grey.addActionListener(this.controller);
+        this.repaint();
+
         this.highTint.addActionListener(this.controller);
-        
+        this.repaint();
+
         this.exit.addActionListener(this.controller);
+        this.repaint();
+
         this.setBackground(Color.CYAN);
+        this.repaint();
+
     }
-//
+// old code
 //    public void swtichCarImage() {
 //        this.mainWindow.switchCarImage();
 //    }

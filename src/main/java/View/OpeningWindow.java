@@ -11,7 +11,7 @@ package View;
 /**
  *
  * @author Kyle Guldin import java.util.Scanner;
-*
+ *
  */
 import Controller.ButtonMenuController;
 import java.awt.BorderLayout;
@@ -19,7 +19,6 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-
 
 public class OpeningWindow extends JFrame implements Observer {
 
@@ -29,14 +28,14 @@ public class OpeningWindow extends JFrame implements Observer {
     FeatureOptions detailOptions = new FeatureOptions();
 
     public OpeningWindow() {
-        
+
         this.carImage = new CarImage();
 
-        this.controller = new ButtonMenuController( carImage );
+        this.controller = new ButtonMenuController(carImage);
+        this.repaint();
+        this.buttonMenu = new ButtonMenu(this.controller);
 
-        this.buttonMenu = new ButtonMenu( this.controller );
-
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());// all this sets the layout and a title, and size
         this.add(this.buttonMenu, BorderLayout.EAST);
         this.add(this.detailOptions, BorderLayout.SOUTH);
         this.add(this.carImage, BorderLayout.CENTER);
@@ -76,7 +75,6 @@ public class OpeningWindow extends JFrame implements Observer {
 //      public void tintGreyCars(){
 //        this.carImage.greyTintCarImage();
 //    }
-
     @Override
     public void update(Observable o, Object arg) {
         // change UI to reflect that the model looks like now

@@ -10,6 +10,7 @@ package View;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -19,9 +20,54 @@ import javax.swing.JPanel;
  *
  */
 public class CarImage extends JPanel {
-    
-    ImageIcon carImage = new ImageIcon(getClass().getResource("/images/IST261SedanOutline.PNG"));
+
+    JPanel panel;
+    ImageIcon carImage = new ImageIcon(getClass().getResource("/images/DefaultCars.PNG"));
     JLabel carLabel = new JLabel(carImage);
+    ImageIcon defaultImage = new ImageIcon(getClass().getResource("/images/DefaultCars.PNG"));
+    JLabel defaultLabel = new JLabel(defaultImage);
+
+    public CarImage() {
+        this.panel = new JPanel();
+        this.add(this.defaultLabel); //adds defaul label
+        this.add(this.carLabel);//adds car label
+
+        this.defaultLabel.setVisible(true); //sets default label to visible
+
+        this.repaint();
+
+        this.setBackground(Color.DARK_GRAY);
+    }
+
+    public void setCarImage(String type, String color, boolean high_tint) {
+        String imageName;
+        this.add(this.defaultLabel);//adds default label
+        this.defaultLabel.setVisible(true);// ensures default label is visible
+        if (high_tint == true) {
+            imageName = "/images/" + type + color + "withtint.PNG";//gets the correct image based on decisions
+
+            this.repaint();
+        } else {
+            imageName = "/images/" + type + color + ".PNG";
+            this.repaint();
+
+        }
+        this.carLabel.setVisible(false);//sets labels to not visible
+        // i changed it from remove, because i think that was where the source of it not updating was from
+        this.defaultLabel.setVisible(false);
+        System.out.println("load: " + imageName);
+        ImageIcon carimage = new ImageIcon(getClass().getResource(imageName));
+        this.repaint();
+        this.validate();//i put repaint and validate in a bunch just to make sure it would actually change
+        this.repaint();//because at first it was not
+        this.carLabel = new JLabel(carimage);
+        this.panel.add(this.carLabel);//adding the new carlabel back with the updated image
+        this.repaint();
+        this.add(this.carLabel);//this is repetitive but i didnt want to mess with it because i didnt want it to break
+        this.repaint();
+
+    }
+}
 
 //    ImageIcon sedanImage = new ImageIcon(getClass().getResource("/images/IST261SedanOutline.PNG"));
 //    JLabel sedanLabel = new JLabel(sedanImage);
@@ -56,12 +102,6 @@ public class CarImage extends JPanel {
 //    JLabel blueTintSedanImage = new JLabel(blueTintSedan);
 //    ImageIcon blueTintTruck = new ImageIcon(getClass().getResource("/images/truckbluewithtint.PNG"));
 //    JLabel blueTintTruckImage = new JLabel(blueTintTruck);
-    public CarImage() {
-        this.add(this.carLabel);
-//        this.add(this.truckLabel);
-        this.setBackground(Color.DARK_GRAY);
-    }
-
 //    public void switchCarImage() {
 //        if (this.carImage == true) {
 //            this.repaint();
@@ -312,7 +352,6 @@ public class CarImage extends JPanel {
 //        }
 //        this.repaint();
 //    }
-    
 //    public void highTint(String carType, String carColor) {
 //        if (carType == "sedan") {
 //            
@@ -320,20 +359,3 @@ public class CarImage extends JPanel {
 //            
 //        }
 //    }
-    
-    public void setCarImage(String type, String color, boolean high_tint) {
-
-        String imageName;
-        if (high_tint == true) {
-            imageName = "/images/" +type+color+"withtint.PNG";
-        } else {
-            imageName = "/images/" +type+color+".PNG";
-        }
-        System.out.println("load: " + imageName);
-        ImageIcon carImage = new ImageIcon(getClass().getResource( imageName ));
-        this.removeAll();
-        this.carLabel = new JLabel(carImage);
-        this.add(this.carLabel);
-        this.repaint();
-    }
-}
